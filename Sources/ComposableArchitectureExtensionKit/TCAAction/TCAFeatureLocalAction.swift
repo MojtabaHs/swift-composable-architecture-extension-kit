@@ -12,3 +12,14 @@ public protocol TCAFeatureLocalAction: Equatable {
     /// [See more detail about **sharing logic with actions**](https://pointfreeco.github.io/swift-composable-architecture/main/documentation/composablearchitecture/performance#Sharing-logic-with-actions)
     static func local(_: Local) -> Self
 }
+
+import ComposableArchitecture
+
+public protocol TCAFeatureLocalActionReducer: ReducerProtocol where Action: TCAFeatureLocalAction {
+    func reduce(into state: inout State, localAction action: Action.Local) -> EffectTask<Action>
+}
+
+public extension TCAFeature where Action: TCAFeatureLocalAction {
+    @available(*, deprecated, message: "Always fails. Must conform to `TCAFeatureLocalActionReducer` and implement stubs.")
+    func reduce(into state: inout State, localAction action: Action.Local) -> EffectTask<Action> { fatalError() }
+}
