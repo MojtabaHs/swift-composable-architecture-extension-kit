@@ -24,3 +24,8 @@ public extension TCAFeature {
     @available(swift, obsoleted: 1.0, message: "Conform to `TCAFeatureLocalActionReducer` and implement stubs.")
     func reduce<T>(into state: inout State, localAction action: T) -> EffectTask<Action> { fatalError() }
 }
+
+public extension TCAFeature {
+    @available(swift, obsoleted: 1.0, message: "Conform to `TCAFeatureChildActionReducer` and implement stubs.")
+    func reduce<T>(into state: inout State, childAction action: T) -> EffectTask<Action> { fatalError() }
+}
