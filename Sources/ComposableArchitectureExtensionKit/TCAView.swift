@@ -3,8 +3,8 @@ import ComposableArchitecture
 
 public protocol TCAView: View {
     associatedtype Feature: TCAFeature
-    associatedtype ViewState: Equatable
+    associatedtype State: Equatable
     var store: StoreOf<Feature> { get }
-    var viewStore: ViewStore<ViewState, Feature.Action> { get }
+    var viewStore: ViewStore<State, Feature.Action> { get }
     init(store: StoreOf<Feature>)
 }
