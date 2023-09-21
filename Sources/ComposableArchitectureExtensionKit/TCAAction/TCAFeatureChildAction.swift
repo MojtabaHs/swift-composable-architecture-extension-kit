@@ -11,11 +11,11 @@ public protocol TCAFeatureChildAction: Equatable {
 
 import ComposableArchitecture
 
-public protocol TCAFeatureChildActionReducer: ReducerProtocol where Action: TCAFeatureChildAction {
-    func reduce(into state: inout State, childAction action: Action.Child) -> EffectTask<Action>
+public protocol TCAFeatureChildActionReducer: Reducer where Action: TCAFeatureChildAction {
+    func reduce(into state: inout State, childAction action: Action.Child) -> Effect<Action>
 }
 
 public extension TCAFeature where Action: TCAFeatureChildAction {
     @available(*, deprecated, message: "Always fails. Must conform to `TCAFeatureChildActionReducer` and implement stubs.")
-    func reduce(into state: inout State, childAction action: Action.Child) -> EffectTask<Action> { fatalError() }
+    func reduce(into state: inout State, childAction action: Action.Child) -> Effect<Action> { fatalError() }
 }

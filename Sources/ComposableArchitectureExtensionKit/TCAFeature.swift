@@ -1,6 +1,6 @@
 import ComposableArchitecture
 
-public protocol TCAFeature: ReducerProtocol {
+public protocol TCAFeature: Reducer {
     typealias Store = ComposableArchitecture.Store<State, Action>
 
     /// This store will use for the default preview
