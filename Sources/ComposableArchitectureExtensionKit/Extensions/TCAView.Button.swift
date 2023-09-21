@@ -1,6 +1,6 @@
 import SwiftUI
 
-public extension TCAView {
+public extension TCABasicViewStore {
     /// Helper method for building a `Button` and directly calling the `ViewAction`
     func Button<Label: View>(send action: Action, @ViewBuilder label: () -> Label) -> SwiftUI.Button<Label> {
         // swiftlint:disable:previous identifier_name

@@ -17,10 +17,12 @@ public protocol TCAView: View where Feature.Action: TCAFeatureViewAction {
 
     var store: StoreOf<Feature> { get }
 
+    init(store: StoreOf<Feature>)
+}
+
+public protocol TCABasicViewStore: TCAView {
     /// The store for the `View`
     /// It **MUST** be `@ObservedObject`, otherwise, the view will NOT detect the changes.
     // TODO: Force the conformer to use `@ObservedObject`
     var viewStore: ViewStore<State, Action> { get }
-
-    init(store: StoreOf<Feature>)
 }

@@ -1,6 +1,6 @@
 import SwiftUI
 
-public extension TCAView {
+public extension TCABasicViewStore {
     // TODO: Make the interface cleaner
     // swiftlint:disable identifier_name
     /// Helper method for building a `Picker` and directly calling the `ViewAction`
