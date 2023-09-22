@@ -12,10 +12,10 @@ public protocol TCAFeatureDelegateAction: Equatable {
 import ComposableArchitecture
 
 public protocol TCAFeatureDelegateActionReducer: Reducer where Action: TCAFeatureDelegateAction {
-    func reduce(into state: inout State, delegateAction action: Action.Delegate) -> Effect<Action>
+    func reduce(into state: inout State, action: Action.Delegate) -> Effect<Action>
 }
 
 public extension TCAFeature where Action: TCAFeatureDelegateAction {
     @available(*, deprecated, message: "Always fails. Must conform to `TCAFeatureDelegateActionReducer` and implement stubs.")
-    func reduce(into state: inout State, delegateAction action: Action.Delegate) -> Effect<Action> { fatalError() }
+    func reduce(into state: inout State, action: Action.Delegate) -> Effect<Action> { fatalError() }
 }

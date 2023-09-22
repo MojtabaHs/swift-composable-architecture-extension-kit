@@ -16,10 +16,10 @@ public protocol TCAFeatureLocalAction: Equatable {
 import ComposableArchitecture
 
 public protocol TCAFeatureLocalActionReducer: Reducer where Action: TCAFeatureLocalAction {
-    func reduce(into state: inout State, localAction action: Action.Local) -> Effect<Action>
+    func reduce(into state: inout State, action: Action.Local) -> Effect<Action>
 }
 
 public extension TCAFeature where Action: TCAFeatureLocalAction {
     @available(*, deprecated, message: "Always fails. Must conform to `TCAFeatureLocalActionReducer` and implement stubs.")
-    func reduce(into state: inout State, localAction action: Action.Local) -> Effect<Action> { fatalError() }
+    func reduce(into state: inout State, action: Action.Local) -> Effect<Action> { fatalError() }
 }

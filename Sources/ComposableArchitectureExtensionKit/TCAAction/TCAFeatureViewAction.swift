@@ -15,10 +15,10 @@ public protocol TCAFeatureViewAction: Equatable {
 import ComposableArchitecture
 
 public protocol TCAFeatureViewActionReducer: Reducer where Action: TCAFeatureViewAction {
-    func reduce(into state: inout State, viewAction action: Action.View) -> Effect<Action>
+    func reduce(into state: inout State, action: Action.View) -> Effect<Action>
 }
 
 public extension TCAFeature where Action: TCAFeatureViewAction {
     @available(*, deprecated, message: "Always fails. Must conform to `TCAFeatureViewActionReducer` and implement stubs.")
-    func reduce(into state: inout State, viewAction action: Action.View) -> Effect<Action> { fatalError() }
+    func reduce(into state: inout State, action: Action.View) -> Effect<Action> { fatalError() }
 }

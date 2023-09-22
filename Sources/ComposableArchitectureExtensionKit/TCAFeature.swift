@@ -8,6 +8,11 @@ public protocol TCAFeature: Reducer {
 }
 
 public extension TCAFeature {
+    @available(swift, obsoleted: 1.0, message: "Conform to `TCAFeature<T>ActionReducer` and implement stubs.")
+    func reduce<T>(into state: inout State, action: T) -> Effect<Action> { fatalError() }
+}
+
+public extension TCAFeature {
     @available(swift, obsoleted: 1.0, message: "Conform to `TCAFeatureViewActionReducer` and implement stubs.")
     func reduce<T>(into state: inout State, viewAction action: T) -> Effect<Action> { fatalError() }
 }
