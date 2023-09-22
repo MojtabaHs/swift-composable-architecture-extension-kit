@@ -21,13 +21,14 @@ public extension TCABasicViewStore {
     }
 
     /// Helper method for building a `Button` and directly calling the `ViewAction`
+    @available(macOS 11.0, *)
     func Button(systemImage: String, send action: Action) -> SwiftUI.Button<Image> {
         // swiftlint:disable:previous identifier_name
         Button(send: action) { Image(systemName: systemImage) }
     }
 
     /// Helper method for building a `Button` and directly calling the `ViewAction`
-    @available(iOS 15.0, *)
+    @available(iOS 15.0, macOS 12.0, *)
     func Button<Label: View>(role: ButtonRole, send action: Action, @ViewBuilder label: () -> Label) -> SwiftUI.Button<Label> {
         // swiftlint:disable:previous identifier_name
         SwiftUI.Button(role: role, action: { self.viewStore.send(action) }, label: label)
